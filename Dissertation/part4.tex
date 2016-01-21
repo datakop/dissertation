@@ -1,0 +1,57 @@
+\chapter{Архитектура HWR систем} \label{chapt4}
+
+Литература \cite{cheriet2007character, romero2012multimodal, bunke2007off}
+
+\section{Проблемы с которыми приходится сталкиваться:} \label{sect4_1}
+
+Зашумленное изображение
+Выделение текста на изображении
+Сегментация текста на строки
+Сегментация строк на слова
+Вариативность почерка
+Язык рукописи
+Размерность словаря
+Словарь может быть маленький
+Может быть большой
+А может и не быть заданного словаря, тогда говорят о задаче без словарного распознавания 
+Сегментация слова на примитивы
+Проблема сегментации возникает на всех уровнях СРРТ, начиная от сегментации текста от фона изображения, заканчивая восстановлением сегментации для уже распознанных слов в целях выявления ошибок.
+Распознавание примитивов из заданного класса и отбраковка остальных
+Распознавание слова
+Построение модели языка
+
+
+\section{Подготовка изображения к Распознаванию} \label{sect4_2}
+
+\subsection{Предобработка скана изображения} \label{subsect4_2_1}
+
+\cite{durebrandt2015segmentation}
+
+Удаление шума, применение методов threshoulding-а
+Выделение области интереса
+
+
+\subsection{Предобработка изображения текста} \label{subsect4_2_2}
+
+Цель этапа предобработки строк - применить последовательность процедур нормализации к изображениям строк с целью сокращения вариативности внешней стилистики рукописного текста. Некоторые из возможных процедур нормализации описаны в следующих разделах.
+
+\textbf{Скелетонизация (thinning or skeletonization).} Целью данной процедуры является нормализация ширины каждой линии на изображении к ширине 1-ого пикселя, сохраняя при это топологию структуры слова. \cite{suen1994thinning}
+
+\textbf{Коррекция базовой линии(baseline correction or skew correction).} computing a baseline estimate by interpolating local contour minima (cf. [...]) works well for Roman script, but will be likely to fail for Arabic. \cite{plotz2009markov}
+
+More widely applicable is the implicit estimation of the baseline orientation by maximizing the entropy of the horizontal projection histogram (cf., e.g., [...]). \cite{plotz2009markov}
+
+\textbf{slant angle correction} The slant angle, i.e., the tilt of individual handwritten characters with respect to the vertical, is compensated by applying a shear transform to the text-line image. \cite{plotz2009markov}
+
+\textbf{size of the handwriting.} A quite robust method for normalizing the size of Roman script was proposed in \cite{madhvanath1999chaincode} which uses an estimate of average character width.
+
+Более подробно про текхники предобработки текстового изображения можно почитать в \cite{fujisawa2007robustness}.
+
+\subsection{Сегментация строки и слова} \label{subsect4_2_3}
+
+A good overviewof algorithms for text-line extraction is given in \cite{likforman2007text}, \cite{durebrandt2015segmentation}.
+\textbf{Препроцессинг и нормализация строк.} \cite{durebrandt2015segmentation}
+
+\textbf{Сегментация строк на слова.} \cite{durebrandt2015segmentation}
+
+\textbf{Нормализация изображений слов.} \cite{durebrandt2015segmentation}

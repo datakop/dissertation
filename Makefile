@@ -1,3 +1,5 @@
+# http://jon.smajda.com/2008/03/08/latexmk/
+
 all: synopsis dissertation
 
 dissertation:
