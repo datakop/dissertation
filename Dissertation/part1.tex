@@ -1,59 +1,24 @@
-\chapter{Обзор литературы} \label{chapt1}
+\chapter{Наборы рукописных текстов}
+\section{Латинские языки}
 
-\section{Задачи визуального восприятия} \label{sect1_1}
+Подробное описание и сравнение наборов данных для распознавания текста можно посмотреть в \cite{hussain2015comprehensive} \url{http://www.iapr-tc11.org/mediawiki/index.php/Datasets_List}
 
-Направления исследований по данной тематике можно классифицировать в зависимости от вида распознаваемой информации. Получаем три основных направления: Распознавание Текста, Распознавание Нотаций, Распознавание Иллюстраций.
+\subsection{IAM}
+\subsection{CEDAR}
+\subsection{IRONFF}
+\subsection{AWS}
+\subsection{RIMES}
+\subsection{CVL - Dataset}
 
-\textbf{Распознавание Текста.} Первые упоминанию о попытках распознавания печатных символов датируются веком назад. В 1914 году, Emanuel Goldberg разрабатывал механическую машину, которая считывала символы и переводила их в телеграфный код. Исторический обзор OCR может быть найден в \cite{mori1992historical}, \cite{herbert1982history}.
+\section{Кириллические языки}
+\subsection{Кириллические наборы данных}
 
-В литературе, Распознавание Текста также ассоциируют с Оптическим распознаванием символов(Optical Character Recognition), чаще всего упоминают аббревиатуру OCR. OCR - механический перевод изображений рукописного или машинописного текста в текстовые формат, использующиеся для представления символов в компьютере.
+\url{https://www.reddit.com/r/MachineLearning/comments/2vvg9b/russian_script_training_set/}
 
-\noindent Тексты можно разбить на несколько классов, в зависимости от формата письма \cite{salunke2015state}:
-\begin{itemize}
-  \item Unconstrained non-isolated handwritten text
-  \item Unconstrained isolated handwritten text
-  \item Constrained non-isolated handwritten text
-  \item Constrained isolated handwritten text
-  \item Unifont typewritten text: Typewritten text that involves only one font.
-  \item Multifont typewritten text: Typewritten text involving many fonts.
-\end{itemize}
+\subsubsection{Национальный корпус русского языка}
 
-Классы текстов можно объединить в две группы - машинопечатные и рукописные, как раз по этим двум группам OCR разделяется еще на два поднаправления: распознавание печатного текста и распознавание рукописного текста.
-
-\textbf{Распознавание машинопечатного текста.} Преобразование отсканированных машинопечаных документов в электронный формат. Основные проблемы, которые возникают при решении данной задачи это вариативность шрифтов(Multifont typewritten text), шум на отсканированном изображении, качество фона. Несмотря на эти проблемы задача распознавания машинопечатных текстов решена с точностью 95-99\% \cite{breuel2013high}.
-
-Задачей распознавания печатного текста активно занимаются такие компании как abbyy, parascript, myscript, a2ia. Данное направление не затрагивается в этом обзоре.
-
-\textbf{Распознавание Рукописного текста.} Является относительно молодым направление в Patter Recognition. В английской литературе имеет несколько синонимов: Handwriten Text Recognition, Cursive Text Recogniton, Cursive Script Recognition, Unconstrained Cursive Writing Recognition. State-of-the-art HTR описан в следующих статьях \cite{rehman2012off} \cite{bunke2003recognition} \cite{fujisawa2008forty} \cite{steinherz1999offline}.
-
-Распознавание Рукописного Текста подразделяется на два направления, в зависимости от типа ввода данных Online и Offline
-
-\noindent Основные задачи:
-\begin{itemize}
-  \item Handwritten Character Recognition
-  \item Handwritten Word Recognition
-  \item Handwritten Sentence Recognition
-  \item Handwritten Word Spotting
-  \item Handwritten Write Identification
-  \item Handwritten Digit Sequence Recognition
-  \item Handwriting Text Segmentation
-\end{itemize}
-
-\textbf{Расознавание Иллюстраций.} Sketch Understanding - синоним в англоязычной литературе. Несколько груп, занимающиеся online распознаванием рукописного текста, пошли дальше и взяли более сложную задачу, такую как online sketch recognition \cite{davis2007magic}.
-
-\textbf{Распознавание Нотация.} Примерами нотаций являются - математическая нотация \cite{miyao2004online}, музыкальная нотация \cite{mitobe2004fast}.
+\url{http://www.ruscorpora.ru/} - на этом сайте помещен корпус современного русского языка общим объемом более 600 млн слов. Корпус русского языка — это информационно-справочная система, основанная на собрании русских текстов в электронной форме.
 
 
-\section{Промышленное применение} \label{sect1_2}
-
-\textbf{Historical Documents Recognition.} \cite{romero2012multimodal, frinken2013handwriting, edwards2007easily} https://diuf.unifr.ch/main/hisdoc/module-1-layout-analysis
-
-\textbf{Postal Service.} In recent years, tremendous efforts have been directed toward this issue (cf., e.g., ...). It has resulted in powerful recognition systems, which are successfully applied bymajor postal service com- panies (cf., e.g., … ). \cite{plotz2009markov}
-
-\textbf{Bank Cheques.} Another important application field of Markov-modelbased handwriting recognition is the automatic processing of bank cheques and official forms as regularly considered by insurance companies, banks, governmental organizations, etc. Various recognizers for different languages have been developed and are applied (cf., e.g., [...]). \cite{plotz2009markov}
-
-\textbf{Official Forms.}
-
-\textbf{Signature Verification.} offline signature verification play important roles for legal issues (cf., e.g., [...]). \cite{plotz2009markov}
-
-\textbf{Whiteboard Reading.} \cite{wienecke2005toward}. By means of either a special infrared / ultrasonic tracking device for online recognition or a video camera for offline record- ing, images from a whiteboard containing handwriting data are captured. Markov models are used in both cases for text recognition (cf., e.g., [...]). \cite{plotz2009markov}
+\section{Synthetic Data}
+more in \cite{bunke2003recognition} (3.2 Synthetic Training Data)

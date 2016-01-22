@@ -2,6 +2,8 @@
 \addcontentsline{toc}{chapter}{Введение}    % Добавляем его в оглавление
 
 
+\section*{Предметная область}
+\addcontentsline{toc}{section}{Предметная область}
 
 Человек использует письменность, письменные нотации и иллюстрации для передачи и хранения информации. Письменность представляет собой знаковую систему, предназначенную для формализации, фиксации, сохранения и передачи информации. Продуктом письменности является текст, текст может храниться в нескольких форматах: на бумаге в печатном или рукописном виде, в электронном формате в определенной кодировке(ASCII, UTF\cite{unicode1991unicode} и т.д.).
 
@@ -14,3 +16,147 @@
 Европейские проекты по распознаванию исторических рукописей \cite{vidal2014d5, romero2012multimodal}.
 
 Диссертации на схожую тему \cite{guillevic1995unconstrained, vinciarelli2003offline, tay2002offline, fischer2012handwriting, romero2012multimodal}
+
+\section*{Парадокс Sayre}
+\addcontentsline{toc}{section}{Парадокс Sayre}
+
+\section*{Система распознавания рукописных текстов}
+\addcontentsline{toc}{section}{Система распознавания рукописных текстов}
+
+Задачи
+
+\textbf{Handwritten Character Recognition} - одна из сильно изученных проблем распознавания образов. Среди всех подходов к ее решению, ANN самый успешный - [60]. Однако, в распознавании рукописного текста, задача состоит не только в распознавании отдельных рукописных букв, но в отделении этих букв от их соседей, этот процесс называется Сегментацией.
+Лидером решения этой задачи является Yann Lecun
+
+\textbf{Handwritten Word Recognition.} В идеальном случае, распознавание рукописных слов может быть сведено к расширению метода распозн букв с применением предварительной сегментации для выделения букв/символов, но данный метод не показал хороших результатов. Сегментация слова не может быть точной без знания самого слова, это так называемый парадокс Sayre-а [62].  Распознаватель бук не может правильно распознать слово без правильной сегментации. Это ведет к принципу использования систем с лексическим движком, в которых сегментация и распознавание тесно сопряжены.
+
+\textbf{Handwritten Sentence Recognition.} \cite{frinken2014novel} Современный подход реализации систем распознавания рукописного текста, на вход которой подается вся строка целиком. В основе этих систем лежит HMM-модель-буквы.
+
+
+Из последних результатов, полученных на сегодняшний день - лидируют следующие работы:
+\cite{graves2009novel}
+
+\cite{espana2011improving, zamora2014neural}
+
+\cite{kozielski2013improvements, frinken2014novel, kozielski2014multilingual, pham2014dropout}
+
+\cite{frinken2011co}
+
+\subsection*{Общая архитетура}
+\addcontentsline{toc}{subsection}{Общая архитетура}
+
+\cite{tay2001offline}
+
+http://take.ms/aGTwn \cite{plotz2009markov}
+
+http://take.ms/mU9Ao \cite{tay2002offline}
+
+\subsection*{Проблемы}
+\addcontentsline{toc}{subsection}{Проблемы}
+
+Проблемы и сложности в задаче распознавания рукописного текста могут быть кратко разделены на 5 категорий:
+
+\textbf{Nature of handwriting signal(offline/online).} В зависимости от сценария, существует два типа рукописных сигналов, которые могут быть прочитаны с  устройств ввода: online рукописный текст и offline рукописный текст.
+
+Offline распознавание рукописного текста сталкивается с проблемой распознавания текста, который был написан до его оцифровки системами сканирования. Данный сигнал представляет собой 2-D множество binary, gray-scale или RGB пикселей.
+
+Online распознавание рукописного текста сталкивается с проблемой распознавания текста в момент его ввода в систему с помощью специального графического планшета. Сигнал представляет собой временной ряд с координатами {x(t), y(t)} траектории пера, полученные в момент времени t. Используя этот сигнал, система может получить взаимное расположение каждой точки, скорость пера по всей траектории, и было ли соприкосновение пера и планшета в конкретный момент времени.
+
+Так как online сигнал состоит из координат движения пера, то по ним легко восстанавливается offline сигнал. А вот сделать обратное - сложная задача, а иногда и невозможная, пример исследования на эту тему можно посмотреть в \cite{поцепаев2004восстановление}. 
+
+В online сигнале хранится больше информации чем в offline, тем самым, добиться более высокой точности распознавания в online распознавании текста проще чем в offline. 
+
+\textbf{Handwriting style}
+
+\textbf{Writer Dependency}
+
+\textbf{Size of Vocabulary}
+
+\textbf{Language} Для зраличных языков используются различные методы, большинство работ исследовано в направлении Latin, Arabic, Brahmic and Non-alphabetic writing systems.
+
+
+Зашумленное изображение
+Выделение текста на изображении
+Сегментация текста на строки
+Сегментация строк на слова
+Вариативность почерка
+Язык рукописи
+Размерность словаря
+Словарь может быть маленький
+Может быть большой
+А может и не быть заданного словаря, тогда говорят о задаче без словарного распознавания 
+Сегментация слова на примитивы
+Проблема сегментации возникает на всех уровнях СРРТ, начиная от сегментации текста от фона изображения, заканчивая восстановлением сегментации для уже распознанных слов в целях выявления ошибок.
+Распознавание примитивов из заданного класса и отбраковка остальных
+Распознавание слова
+Построение модели языка
+
+\section*{Обзор литературы}
+\addcontentsline{toc}{section}{Обзор литературы}
+
+По теме сделано множество хороших обзоров \cite{bunke2003recognition, plotz2009markov, rehman2012off, fujisawa2008forty, plamondon2000online, steinherz1999offline, vinciarelli2002survey}
+
+Направления исследований по данной тематике можно классифицировать в зависимости от вида распознаваемой информации. Получаем три основных направления: Распознавание Текста, Распознавание Нотаций, Распознавание Иллюстраций.
+
+\textbf{Распознавание Текста.} Первые упоминанию о попытках распознавания печатных символов датируются веком назад. В 1914 году, Emanuel Goldberg разрабатывал механическую машину, которая считывала символы и переводила их в телеграфный код. Исторический обзор OCR может быть найден в \cite{mori1992historical}, \cite{herbert1982history}.
+
+В литературе, Распознавание Текста также ассоциируют с Оптическим распознаванием символов(Optical Character Recognition), чаще всего упоминают аббревиатуру OCR. OCR - механический перевод изображений рукописного или машинописного текста в текстовые формат, использующиеся для представления символов в компьютере.
+
+\noindent Тексты можно разбить на несколько классов, в зависимости от формата письма \cite{salunke2015state}:
+\begin{itemize}
+  \item Unconstrained non-isolated handwritten text
+  \item Unconstrained isolated handwritten text
+  \item Constrained non-isolated handwritten text
+  \item Constrained isolated handwritten text
+  \item Unifont typewritten text: Typewritten text that involves only one font.
+  \item Multifont typewritten text: Typewritten text involving many fonts.
+\end{itemize}
+
+Классы текстов можно объединить в две группы - машинопечатные и рукописные, как раз по этим двум группам OCR разделяется еще на два поднаправления: распознавание печатного текста и распознавание рукописного текста.
+
+\textbf{Распознавание машинопечатного текста.} Преобразование отсканированных машинопечаных документов в электронный формат. Основные проблемы, которые возникают при решении данной задачи это вариативность шрифтов(Multifont typewritten text), шум на отсканированном изображении, качество фона. Несмотря на эти проблемы задача распознавания машинопечатных текстов решена с точностью 95-99\% \cite{breuel2013high}.
+
+Задачей распознавания печатного текста активно занимаются такие компании как abbyy, parascript, myscript, a2ia. Данное направление не затрагивается в этом обзоре.
+
+\textbf{Распознавание Рукописного текста.} Является относительно молодым направление в Patter Recognition. В английской литературе имеет несколько синонимов: Handwriten Text Recognition, Cursive Text Recogniton, Cursive Script Recognition, Unconstrained Cursive Writing Recognition. State-of-the-art HTR описан в следующих статьях \cite{rehman2012off} \cite{bunke2003recognition} \cite{fujisawa2008forty} \cite{steinherz1999offline}.
+
+Распознавание Рукописного Текста подразделяется на два направления, в зависимости от типа ввода данных Online и Offline
+
+\noindent Основные задачи:
+\begin{itemize}
+  \item Handwritten Character Recognition
+  \item Handwritten Word Recognition
+  \item Handwritten Sentence Recognition
+  \item Handwritten Word Spotting
+  \item Handwritten Write Identification
+  \item Handwritten Digit Sequence Recognition
+  \item Handwriting Text Segmentation
+\end{itemize}
+
+\textbf{Расознавание Иллюстраций.} Sketch Understanding - синоним в англоязычной литературе. Несколько груп, занимающиеся online распознаванием рукописного текста, пошли дальше и взяли более сложную задачу, такую как online sketch recognition \cite{davis2007magic}.
+
+\textbf{Распознавание Нотация.} Примерами нотаций являются - математическая нотация \cite{miyao2004online}, музыкальная нотация \cite{mitobe2004fast}.
+
+
+\subsection*{Промышленное применение}
+\addcontentsline{toc}{subsection}{Промышленное применение}
+
+\textbf{Historical Documents Recognition.} \cite{romero2012multimodal, frinken2013handwriting, edwards2007easily} https://diuf.unifr.ch/main/hisdoc/module-1-layout-analysis
+
+\textbf{Postal Service.} In recent years, tremendous efforts have been directed toward this issue (cf., e.g., ...). It has resulted in powerful recognition systems, which are successfully applied bymajor postal service com- panies (cf., e.g., … ). \cite{plotz2009markov}
+
+\textbf{Bank Cheques.} Another important application field of Markov-modelbased handwriting recognition is the automatic processing of bank cheques and official forms as regularly considered by insurance companies, banks, governmental organizations, etc. Various recognizers for different languages have been developed and are applied (cf., e.g., [...]). \cite{plotz2009markov}
+
+\textbf{Official Forms.}
+
+\textbf{Signature Verification.} offline signature verification play important roles for legal issues (cf., e.g., [...]). \cite{plotz2009markov}
+
+\textbf{Whiteboard Reading.} \cite{wienecke2005toward}. By means of either a special infrared / ultrasonic tracking device for online recognition or a video camera for offline record- ing, images from a whiteboard containing handwriting data are captured. Markov models are used in both cases for text recognition (cf., e.g., [...]). \cite{plotz2009markov}
+
+\section*{Выводы}
+\addcontentsline{toc}{section}{Выводы}
+
+В проанализированной литературе не было найдено систем распознавания кириллического рукописного текста.
+
+В мире нет обучающих выборок для кириллических рукописных текстов. Нужно использовать \url{http://www.ruscorpora.ru/} для составления обущающей выборки
+
