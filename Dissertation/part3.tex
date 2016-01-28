@@ -10,14 +10,31 @@
 Более подробно про текхники предобработки текстового изображения можно почитать в \cite{fujisawa2007robustness, durebrandt2015segmentation}.
 
 \subsection{Выделение текста}
+\cite{Louloudis2008, Liwicki2007}
+
+История исследования: \cite{durebrandt2015segmentation}, \cite{fischer2012handwriting}, \cite{Louloudis2008}, \cite{Gatos2006}
+
+Stroke Width Transform \cite{Epshtein2010} хорошо показавший себя метод в поике машинопечатного текста на изображениях.
+
 \subsubsection{Бинаризация}
+
+\cite{Gatos2006}
+
 \subsubsection{Выравнивание строк}
 \subsection{Сегментация на строки}
 
-A good overviewof algorithms for text-line extraction is given in \cite{likforman2007text}, \cite{durebrandt2015segmentation}.
+\textbf{Vertical Projection Profile (VPP)}
+The VPP is essentially a histogram produced by taking the sum of the pixel intensities in each row, from which the line boundaries can be ex- tracted. \cite{durebrandt2015segmentation}
+\textbf{Smearing method}
+The rectangle based filtering method blurs the image with a horizontally elongated median filter, followed by binarization using Otsu’s method. Then, in the ideal case, the obtained binary image contains a connected component for each text line. The evaluation on the data-set found that the latter method is more successful. The implemented Smearing method described in section 5.4 takes inspiration from this method, but uses an averaging filter instead of a median filter. \cite{durebrandt2015segmentation}
+
+\textbf{Seam Carving} is performed on each segmented text line, and the gaps between the connected com- ponents are classified as either within or between a word. \cite{durebrandt2015segmentation}
+
+A good overviewof algorithms for text-line extraction is given in \cite{likforman2007text}, \cite{durebrandt2015segmentation, Papavassiliou2010, Moysset2013}.
 
 \subsection{Нормализация сегментированных строк}
 \subsection{Сегментация на слова}
+\textbf{connected component analysis} 
 \subsubsection{Скелетонизация}
 Скелетонизация (thinning or skeletonization). Целью данной процедуры является нормализация ширины каждой линии на изображении к ширине 1-ого пикселя, сохраняя при это топологию структуры слова. \cite{suen1994thinning}
 
@@ -104,6 +121,7 @@ sliding window principle for online offline. Markov models are used for both onl
 \subsection{ML критерий}
 
 \section{Распознавание нейронными сетями}
+\cite{Panwar}
 \subsection{Метод обратного распространения ошибки}
 \subsection{Long Short-Term Memory}
 \subsection{Bidirectional Long Short-Term Memory}
